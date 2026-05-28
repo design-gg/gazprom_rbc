@@ -1,0 +1,316 @@
+   <!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ad.size" content="width=1920,height=1080">
+    <title>1920x1080</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#2b2b2b;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/*    BANNER */
+
+.banner{
+
+    position:relative;
+
+    aspect-ratio:1060 / 1400;
+
+    width:min(100vw,1060px);
+
+    min-width:330px;
+    max-width:1060px;
+
+    min-height:960px;
+    max-height:1400px;
+
+    overflow:hidden;
+
+    background:#0049b8;
+
+}
+
+
+/*    BACKGROUND */
+
+.bg{
+
+    position:absolute;
+    inset:0;
+
+    background:
+
+        url('bg.jpg')
+        center bottom
+        / cover
+        no-repeat;
+
+    transition:
+        background-position .45s cubic-bezier(.22,.61,.36,1),
+        transform .45s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+/*    TITLE */
+
+.title{
+
+    position:absolute;
+
+    left:50%;
+    top:14%;
+
+    width:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:1%;
+
+    z-index:10;
+}
+
+
+/* строки */
+
+.line{
+
+    width:100%;
+    display:block;
+
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+}
+
+
+/* циклическая анимация */
+
+.line1{
+    animation:titleReveal 7s infinite;
+}
+
+.line2{
+    animation:titleReveal 7s infinite;
+    animation-delay:.35s;
+}
+
+.line3{
+    animation:titleReveal 7s infinite;
+    animation-delay:.7s;
+}
+
+
+
+
+/* ключевые кадры */
+
+@keyframes titleReveal{
+
+    0%{
+
+        opacity:0;
+        transform:translateY(35px);
+
+    }
+
+    8%{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+    80%{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+    85%{
+
+        opacity:0;
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        opacity:0;
+        transform:translateY(-12px);
+
+    }
+
+}
+
+
+/*    DISCLAIMER */
+
+.disclaimer{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-end;
+
+    gap:14px;
+
+    padding:
+
+        clamp(8px,1vw,18px)
+
+        clamp(10px,1.5vw,24px);
+
+    color:#fff;
+
+    font-family:Arial,sans-serif;
+
+    font-size:
+
+        clamp(
+            12px,
+            1.2vw,
+            22px
+        );
+
+    line-height:1.1;
+
+    z-index:20;
+
+}
+
+
+.disc-text{
+
+    flex:1;
+
+    opacity:.95;
+
+}
+
+
+.age{
+
+    flex-shrink:0;
+
+    font-weight:700;
+
+}
+
+
+
+/*    NARROW FORMAT   (330x960) */
+
+@media (max-aspect-ratio:1/2){
+
+    .title{
+
+        top:9%;
+        width:92%;
+
+    }
+
+}
+
+
+/*    LARGE FORMAT   (1060x1400) */
+
+@media (min-width:900px){
+
+    .title{
+
+        width:50%;
+        top:16%;
+
+    }
+
+}
+
+
+/*    VERY SMALL HEIGHT */
+
+@media (max-height:1000px){
+
+    .disclaimer{
+
+        padding:8px 12px;
+
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<a href="%banner.reference_mrc_user1%" target="%banner.target%" style="cursor: pointer;">
+    <div class="banner">
+
+    <!-- BACKGROUND -->
+    <div class="bg"></div>
+
+    <!-- TITLE -->
+   <div class="title">
+
+    <img src="t1.png" class="line line1" alt="">
+    <img src="t2.png" class="line line2" alt="">
+    <img src="t3.png" class="line line3" alt="">
+
+</div>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+
+        <div class="disc-text">
+            Реклама. Рекламодатель: ПАО Газпром нефть. ИНН 5504036333
+        </div>
+
+        <div class="age">
+            0+
+        </div>
+
+    </div>
+
+</div>
+</a>
+
+</body>
+</html>
